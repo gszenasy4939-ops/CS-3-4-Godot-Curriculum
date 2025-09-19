@@ -9,14 +9,16 @@ class_name Player
 
 
 var facing: Vector2 = Vector2.ZERO
+@export var money = 0
 
 # TODO: Add health properties here (Lesson 1)
+@export var max_health: int = 100
+@export var health = max_health
+
 # TODO: Add character identity properties here (Lesson 1)  
 # TODO: Add combat stats here (Lesson 1)
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel"):
-		get_tree().quit(0)
+
 
 
 func _ready():
@@ -59,6 +61,23 @@ func handle_sprite(direction: Vector2) -> void:
 	elif facing.x > 0:
 		animated_sprite.play(prefix + "_side")
 		animated_sprite.flip_h = false
+
+
+
+func collect_pickup(_amount: int, _type: String) -> bool:
+	print("pickup detected")	
+	if _type == "coin":
+		money += _amount
+		return true
+		
+	elif _type == "potion":
+		health += _amount
+		if health > max_health:
+			health = max_health
+		return true
+	else:
+		return false
+
 
 # TODO: Add character methods here (Lesson 2)
 # - take_damage()
