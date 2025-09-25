@@ -3,7 +3,6 @@
 
 extends pickup
 class_name Coin
-#coin = 5
 
 
 @export var gold_value: int = 0

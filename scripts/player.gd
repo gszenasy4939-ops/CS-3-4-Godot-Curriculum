@@ -65,9 +65,10 @@ func handle_sprite(direction: Vector2) -> void:
 
 
 func collect_pickup(_amount: int, _type: String) -> bool:
-	print("pickup detected")	
+	
 	if _type == "coin":
 		money += _amount
+		print("I have " +str(money) +" money")
 		return true
 		
 	elif _type == "potion":
@@ -77,6 +78,7 @@ func collect_pickup(_amount: int, _type: String) -> bool:
 		return true
 	else:
 		return false
+
 
 
 # TODO: Add character methods here (Lesson 2)
