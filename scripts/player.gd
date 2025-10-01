@@ -19,8 +19,6 @@ var facing: Vector2 = Vector2.ZERO
 # TODO: Add combat stats here (Lesson 1)
 
 
-
-
 func _ready():
 	print("Player is ready!")
 	# TODO: Add detailed character info display (Lesson 1)
